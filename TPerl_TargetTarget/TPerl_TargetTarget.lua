@@ -672,25 +672,25 @@ function TPerl_TargetTarget_Set_Bits()
 
 	if conf.targettargettarget.enable then
 		if not TPerl_TargetTargetTarget then
-			local ttt = CreateFrame("Button", "TPerl_TargetTargetTarget", TPerl_AnchorFrame, "TPerl_TargetTarget_Template")
+			local ttt = CreateFrame("Button", "TPerl_TargetTargetTarget", UIParent, "TPerl_TargetTarget_Template")
 			ttt:ClearAllPoints()
-			ttt:SetPoint("TOPLEFT", TPerl_AnchorFrame, "TOPRIGHT", 5, 0)
+			ttt:SetPoint("TOPLEFT", TPerl_TargetTarget.statsFrame, "TOPRIGHT", 5, 0)
 		end
 	end
 
 	if conf.focustarget.enable then
 		if not TPerl_FocusTarget then
-			local ft = CreateFrame("Button", "TPerl_FocusTarget", TPerl_AnchorFrame, "TPerl_TargetTarget_Template")
+			local ft = CreateFrame("Button", "TPerl_FocusTarget", UIParent, "TPerl_TargetTarget_Template")
 			ft:ClearAllPoints()
-			ft:SetPoint("TOPLEFT", TPerl_AnchorFrame, "TOPRIGHT", 5, 0)
+			ft:SetPoint("TOPLEFT", TPerl_Focus.levelFrame, "TOPRIGHT", 5, 0)
 		end
 	end
 
 	if conf.pettarget.enable and TPerl_Player_Pet then
 		if not TPerl_PetTarget then
-			local pt = CreateFrame("Button", "TPerl_PetTarget", TPerl_AnchorFrame, "TPerl_TargetTarget_Template")
+			local pt = CreateFrame("Button", "TPerl_PetTarget", TPerl_Player_Pet, "TPerl_TargetTarget_Template")
 			pt:ClearAllPoints()
-			pt:SetPoint("BOTTOMLEFT", TPerl_AnchorFrame, "BOTTOMRIGHT", 5, 0)
+			pt:SetPoint("BOTTOMLEFT", TPerl_Player_Pet.statsFrame, "BOTTOMRIGHT", 5, 0)
 		end
 		if (not InCombatLockdown()) then
 			TPerl_PetTarget:Show()

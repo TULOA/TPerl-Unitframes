@@ -2,7 +2,7 @@
 
 	<Script file="TPerl_Player.lua"/>
 
-	<Button name="TPerl_Player" inherits="SecureUnitButtonTemplate" clampedToScreen="true" frameStrata="LOW" movable="true" parent="TPerl_AnchorFrame">
+	<Button name="TPerl_Player" inherits="SecureUnitButtonTemplate" clampedToScreen="true" frameStrata="LOW" movable="true" parent="UIParent">
 		<Size>
 			<AbsDimension x="220" y="60"/>
 		</Size>

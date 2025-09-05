@@ -2,7 +2,7 @@
 
 	<Script file="TPerl_PlayerPet.lua"/>
 
-	<Button name="TPerl_Player_Pet" inherits="TPerlBackdropTemplate,SecureUnitButtonTemplate" clampedToScreen="true" parent="TPerl_AnchorFrame" frameStrata="LOW" hidden="true" enableMouse="true" movable="true">
+	<Button name="TPerl_Player_Pet" inherits="TPerlBackdropTemplate,SecureUnitButtonTemplate" clampedToScreen="true" parent="UIParent" frameStrata="LOW" hidden="true" enableMouse="true" movable="true">
 		<Size>
 			<AbsDimension x="140" y="50"/>
 		</Size>

@@ -759,11 +759,6 @@ function TPerl_GetClassColour(class)
 	return (class and (CUSTOM_CLASS_COLORS or RAID_CLASS_COLORS)[class]) or defaultColour
 end
 
-TPerl_AnchorFrame = CreateFrame("Frame", "TPerl_AnchorFrame", UIParent)
-TPerl_AnchorFrame:SetPoint("TOPLEFT", UIParent, "TOPLEFT", 0, 0)
-TPerl_AnchorFrame:SetSize(1, 1)
-
-
 local hookedFrames = {}
 local hiddenParent = CreateFrame("Frame")
 hiddenParent:Hide()
@@ -2135,116 +2130,125 @@ end
 
 
 -- TPerl_SavePosition
--- Save position relative to frame's current parent
 function TPerl_SavePosition(self, onlyIfEmpty)
-    local name = self:GetName()
-    if not name then return end
+	local name = self:GetName()
+	if (name) then
+		local s = self:GetScale()
+		local t = self:GetTop()
+		local l = self:GetLeft()
+		local h = self:IsResizable() and self:GetHeight()
+		local w = self:IsResizable() and self:GetWidth()
 
-    local s = self:GetScale()
-    local t = self:GetTop()
-    local l = self:GetLeft()
-    local h = self:IsResizable() and self:GetHeight()
-    local w = self:IsResizable() and self:GetWidth()
-
-    local tbl = TPerl_GetSavePositionTable(true)
-    if not tbl then return end
-
-    if not onlyIfEmpty or (onlyIfEmpty and not tbl[name]) then
-        if t and l then
-            tbl[name] = tbl[name] or {}
-            tbl[name].top = t * s
-            tbl[name].left = l * s
-            tbl[name].height = h
-            tbl[name].width = w
-            tbl[name].parent = self:GetParent() and self:GetParent():GetName() or "UIParent"
-        else
-            tbl[name] = nil
-        end
-    else
-        if tbl[name] and not self:IsUserPlaced() then
-            TPerl_RestorePosition(self)
-        end
-    end
+		local table = TPerl_GetSavePositionTable(true)
+		if (table) then
+			if (not onlyIfEmpty or (onlyIfEmpty and not table[name])) then
+				if (t and l) then
+					if (not table[name]) then
+						table[name] = {}
+					end
+					table[name].top = t * s
+					table[name].left = l * s
+					table[name].height = h
+					table[name].width = w
+				else
+					table[name] = nil
+				end
+			else
+				if (table[name] and not self:IsUserPlaced()) then
+					TPerl_RestorePosition(self)
+				end
+			end
+		end
+	end
 end
 
--- Restore position using saved parent
+-- TPerl_RestorePosition
 function TPerl_RestorePosition(self)
-    if not TPerlConfigNew.savedPositions then return end
+	if (TPerlConfigNew.savedPositions) then
+		local name = self:GetName()
+		if (name) then
+			local table = TPerl_GetSavePositionTable()
+			if (table) then
+				local pos = table[name]
+				if (pos and pos.left and pos.top) then
+					self:ClearAllPoints()
+					self:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", pos.left / self:GetScale(), pos.top / self:GetScale())
 
-    local name = self:GetName()
-    if not name then return end
+					if (pos.height and pos.width) then
+						if (self:IsResizable()) then
+							self:SetHeight(pos.height)
+							self:SetWidth(pos.width)
+						else
+							pos.height, pos.width = nil, nil
+						end
+					end
 
-    local tbl = TPerl_GetSavePositionTable()
-    if not tbl then return end
-
-    local pos = tbl[name]
-    if pos and pos.left and pos.top then
-        local parent = _G[pos.parent] or UIParent
-
-        self:ClearAllPoints()
-        self:SetPoint("TOPLEFT", parent, "BOTTOMLEFT", pos.left / self:GetScale(), pos.top / self:GetScale())
-
-        if pos.height and pos.width then
-            if self:IsResizable() then
-                self:SetHeight(pos.height)
-                self:SetWidth(pos.width)
-            else
-                pos.height, pos.width = nil, nil
-            end
-        end
-
-        self:SetUserPlaced(true)
-    end
+					self:SetUserPlaced(true)
+				end
+			end
+		end
+	end
 end
 
--- Restore all positions
+-- TPerl_RestoreAllPositions
 function TPerl_RestoreAllPositions()
-    local tbl = TPerl_GetSavePositionTable()
-    if not tbl then return end
-
-    for k, v in pairs(tbl) do
-        if k == "TPerl_Runes" or k == "TPerl_RaidHelper_Frame" or
-           k == "TPerl_RaidMonitor_Frame" or k == "TPerl_Check" or
-           k == "TPerl_AdminFrame" or k == "TPerl_Assists_Frame" then
-            tbl[k] = nil
-        elseif k == "TPerl_Options" or k == "TPerl_OptionsAnchor" then
-            -- Noop
-        else
-            local frame = _G[k]
-            if frame and v.left and v.top then
-                frame:SetUserPlaced(false)
-                frame:ClearAllPoints()
-
-                local parent = _G[v.parent] or UIParent
-                frame:SetPoint("TOPLEFT", parent, "BOTTOMLEFT", v.left / frame:GetScale(), v.top / frame:GetScale())
-
-                if k == "TPerl_Assists_FrameAnchor" then
-                    if TPerlConfigHelper then
-                        if TPerlConfigHelper.sizeAssistsX and TPerlConfigHelper.sizeAssistsY then
-                            TPerl_Assists_Frame:SetWidth(TPerlConfigHelper.sizeAssistsX)
-                            TPerl_Assists_Frame:SetHeight(TPerlConfigHelper.sizeAssistsY)
-                        end
-                        if TPerlConfigHelper.sizeAssistsS then
-                            TPerl_Assists_Frame:SetScale(TPerlConfigHelper.sizeAssistsS)
-                        end
-                    end
-                else
-                    if v.height and v.width then
-                        if frame:IsResizable() then
-                            frame:SetHeight(v.height)
-                            frame:SetWidth(v.width)
-                        else
-                            v.height, v.width = nil, nil
-                        end
-                    end
-                end
-
-                frame:SetUserPlaced(true)
-            end
-        end
-    end
+	local table = TPerl_GetSavePositionTable()
+	if table then
+		for k, v in pairs(table) do
+			if k == "TPerl_Runes" or k == "TPerl_RaidHelper_Frame" or k == "TPerl_RaidMonitor_Frame" or k == "TPerl_Check" or k == "TPerl_AdminFrame" or k == "TPerl_Assists_Frame" then
+				-- Fix for a wrong name with versions 2.3.2 and 2.3.2a
+				-- It was using TPerl_Frame instead of TPerl_MTList_Anchor
+				-- and TPerl_RaidMonitor_Frame instead of TPerl_RaidMonitor_Anchor
+				-- And now a change to TPerl_Check to TPerl_CheckAnchor and TPerl_AdminFrame to TPerl_AdminFrameAnchor
+				table[k] = nil
+			elseif k == "TPerl_Options" or k == "TPerl_OptionsAnchor" then
+				-- Noop
+			else
+				local frame = _G[k]
+				if frame then
+					--[[if k == "TPerl_Runes" and conf.player.dockRunes then
+						break
+					end]]
+					if v.left and v.top then
+						frame:SetUserPlaced(false)
+						frame:ClearAllPoints()
+						frame:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", v.left / frame:GetScale(), v.top / frame:GetScale())
+						if k == "TPerl_Assists_FrameAnchor" then
+							if TPerlConfigHelper then
+								if TPerlConfigHelper.sizeAssistsX and TPerlConfigHelper.sizeAssistsY then
+									TPerl_Assists_Frame:SetWidth(TPerlConfigHelper.sizeAssistsX)
+									TPerl_Assists_Frame:SetHeight(TPerlConfigHelper.sizeAssistsY)
+								end
+								if TPerlConfigHelper.sizeAssistsS then
+									TPerl_Assists_Frame:SetScale(TPerlConfigHelper.sizeAssistsS)
+								end
+							end
+						else
+							if v.height and v.width then
+								if frame:IsResizable() then
+									frame:SetHeight(v.height)
+									frame:SetWidth(v.width)
+								else
+									v.height, v.width = nil, nil
+								end
+							end
+						end
+						--[[if (k == "TPerl_Runes") then
+							frame:SetMovable(true)
+							frame:EnableMouse(true)
+							frame:RegisterForDrag("LeftButton")
+							frame:SetScript("OnDragStart", frame.StartMoving)
+							frame:SetScript("OnDragStop", frame.StopMovingOrSizing)
+							frame:SetUserPlaced(true)
+						else]]
+							--frame:SetUserPlaced(true)
+						--end
+					end
+				end
+			end
+		end
+	end
 end
-
 
 local BuffExceptions
 local DebuffExceptions

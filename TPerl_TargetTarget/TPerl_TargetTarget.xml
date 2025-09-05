@@ -2,7 +2,7 @@
 
 	<Script file="TPerl_TargetTarget.lua"/>
 
-	<Button name="TPerl_TargetTarget_Template" inherits="TPerlBackdropTemplate,SecureUnitButtonTemplate" clampedToScreen="true" frameStrata="LOW" virtual="true" movable="true" parent="TPerl_AnchorFrame" hidden="true">
+	<Button name="TPerl_TargetTarget_Template" inherits="TPerlBackdropTemplate,SecureUnitButtonTemplate" clampedToScreen="true" frameStrata="LOW" virtual="true" movable="true" parent="UIParent" hidden="true">
 		<Size>
 			<!-- The size of this frame determines what can be clicked for the menu and moving, hence it is the same size as the name frame. -->
 			<AbsDimension x="160" y="60"/>
@@ -197,7 +197,7 @@
 		</Frames>
 	</Button>
 
-	<Button name="TPerl_TargetTarget" inherits="TPerlBackdropTemplate,TPerl_TargetTarget_Template" movable="true" parent="TPerl_AnchorFrame" hidden="true">
+	<Button name="TPerl_TargetTarget" inherits="TPerlBackdropTemplate,TPerl_TargetTarget_Template" movable="true" parent="UIParent" hidden="true">
 		<Anchors>
 			<Anchor point="TOPLEFT">
 				<Offset>

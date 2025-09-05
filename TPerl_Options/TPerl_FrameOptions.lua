@@ -1424,31 +1424,37 @@ end
 
 -- TPerl_Player_AlignTop
 function TPerl_Player_AlignTop()
-    -- Helper: aligns child's top to ref's top, preserving child's X offset
-    local function AlignTop(child, ref)
-								if not (child and ref) then return end
 
-								-- Child’s existing anchor
-								local point, _, relativePoint, xOfs, _ = child:GetPoint(1)
-								-- Ref’s existing anchor
-								local _, _, _, _, refY = ref:GetPoint(1)
+	-- We set this for 1 reason, so that all the related frames scale in the same direction should the user do that...
+	if (TPerl_Player) then
+		TPerl_Player:ClearAllPoints()
+		TPerl_Player:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", TPerl_Player:GetLeft() or 5, TPerl_Player:GetTop() or 948)
+		TPerl_Player:SetUserPlaced(true)
+	end
 
-								if not (point and relativePoint and xOfs and refY) then return end
+	local function AlignChildTop(self, other)
+		if (self and other) then
+			local top = self:GetTop() * self:GetEffectiveScale()
+			local otherLeft = other:GetLeft() or 220
+			local selfLeft = self:GetLeft() or 5
 
-								child:ClearAllPoints()
-								-- Keep X, replace Y
-								child:SetPoint(point, TPerl_AnchorFrame, relativePoint, xOfs, refY)
-								child:SetUserPlaced(true)
-				end
-    -- Align target-related frames to Player
-    AlignTop(TPerl_Target,        TPerl_Player)
-    AlignTop(TPerl_TargetTarget,  TPerl_Player)
+			if (otherLeft == nil) then
+				otherLeft = selfLeft + 200
+			end
 
-    -- Align FocusTarget to Focus
-    AlignTop(TPerl_FocusTarget,   TPerl_Focus)
+			other:ClearAllPoints()
+			local newTop = top / other:GetEffectiveScale()
+			other:SetPoint("TOPLEFT", UIParent, "BOTTOMLEFT", otherLeft, newTop)
+			other:SetUserPlaced(true)
+			TPerl_SavePosition(other)
+		end
+	end
 
-    -- Align PetTarget to Player_Pet
-    AlignTop(TPerl_PetTarget,     TPerl_Player_Pet)
+	AlignChildTop(TPerl_Player, TPerl_Target)
+	AlignChildTop(TPerl_Target, TPerl_TargetTarget)
+	AlignChildTop(TPerl_TargetTarget, TPerl_TargetTargetTarget)
+	AlignChildTop(TPerl_Focus, TPerl_FocusTarget)
+	AlignChildTop(TPerl_Player_Pet, TPerl_PetTarget)
 end
 
 

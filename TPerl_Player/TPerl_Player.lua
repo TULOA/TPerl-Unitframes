@@ -2309,10 +2309,10 @@ function TPerl_Player_InitDruid(self, playerClass)
 								if MovableComboPointBarFrame then return end
 
 								-- Movable container
-								MovableComboPointBarFrame = CreateFrame("Frame", "MovableComboPointBarFrame", TPerl_AnchorFrame)
+								MovableComboPointBarFrame = CreateFrame("Frame", "MovableComboPointBarFrame", UIParent)
 								Mixin(MovableComboPointBarFrame, DruidComboPointBarMixin)
 								MovableComboPointBarFrame:SetSize(200, 40)
-								MovableComboPointBarFrame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", pconf.comboX or 0, pconf.comboY or -120)
+								MovableComboPointBarFrame:SetPoint("CENTER", UIParent, "CENTER", pconf.comboX or 0, pconf.comboY or -120)
 								MovableComboPointBarFrame.unit = "player"
 								MovableComboPointBarFrame.powerType = Enum.PowerType.ComboPoints
 
@@ -2407,7 +2407,7 @@ function TPerl_Player_InitDruid(self, playerClass)
             local spec = TPerl_GetMonkSpec()  -- returns 1/2/3 talent tree index
             if spec == 1 then                 -- Balance tree
                 if not MovableBalanceBar or not MovableBalanceBar.Created then
-                    MovableBalanceBar = CreateFrame("Frame", "MovableBalanceBar", TPerl_AnchorFrame)
+                    MovableBalanceBar = CreateFrame("Frame", "MovableBalanceBar", UIParent)
 																				MovableBalanceBar.unit = "player"
                     TPerl_BuildBalanceBar_Mists(MovableBalanceBar)
                     MovableBalanceBar.Created = true
@@ -2421,7 +2421,7 @@ function TPerl_Player_InitDruid(self, playerClass)
         end
 
         if not MovableDruidWatcher then
-            MovableDruidWatcher = CreateFrame("Frame", "MovableDruidWatcher", TPerl_AnchorFrame)
+            MovableDruidWatcher = CreateFrame("Frame", "MovableDruidWatcher", UIParent)
             MovableDruidWatcher:RegisterEvent("PLAYER_ENTERING_WORLD")
             MovableDruidWatcher:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
             MovableDruidWatcher:SetScript("OnEvent", function(_, _, arg1)
@@ -2501,7 +2501,7 @@ function TPerl_Player_InitWarlock()
             MovableSoulShardBar = nil
         end
 
-        MovableSoulShardBar = CreateFrame("Frame", "MovableSoulShardBar", TPerl_AnchorFrame)
+        MovableSoulShardBar = CreateFrame("Frame", "MovableSoulShardBar", UIParent)
 	       MovableSoulShardBar.unit = "player"
 								
         if IsRetail then
@@ -2561,7 +2561,7 @@ function TPerl_Player_InitPaladin(self, playerClass)
         if IsMistsClassic then
             --if spec == 2 or spec == 3 then  -- Prot / Ret only in MoP
                 if not MovableHolyPowerBar or not MovableHolyPowerBar.Created then
-                    MovableHolyPowerBar = CreateFrame("Frame", "MovableHolyPowerBar", TPerl_AnchorFrame)
+                    MovableHolyPowerBar = CreateFrame("Frame", "MovableHolyPowerBar", UIParent)
 																				MovableHolyPowerBar.unit = "player"
                     TPerl_BuildPaladinHolyPowerBar_Mists(MovableHolyPowerBar)
                     MovableHolyPowerBar.Created = true
@@ -2579,7 +2579,7 @@ function TPerl_Player_InitPaladin(self, playerClass)
 
             --if specID == 66 or specID == 70 then  -- Prot and Ret only
 												if not MovableHolyPowerBar or not MovableHolyPowerBar.Created then
-																MovableHolyPowerBar = CreateFrame("Frame", "MovableHolyPowerBar", TPerl_AnchorFrame)
+																MovableHolyPowerBar = CreateFrame("Frame", "MovableHolyPowerBar", UIParent)
 																MovableHolyPowerBar.unit = "player"
 																TPerl_BuildPaladinHolyPowerBar_Retail(MovableHolyPowerBar)
 																MovableHolyPowerBar.Created = true
@@ -2597,7 +2597,7 @@ function TPerl_Player_InitPaladin(self, playerClass)
     -- Watcher to handle spec swaps / reloads
     ---------------------------------------------------
     if not MovablePaladinWatcher then
-        MovablePaladinWatcher = CreateFrame("Frame", "MovablePaladinWatcher", TPerl_AnchorFrame)
+        MovablePaladinWatcher = CreateFrame("Frame", "MovablePaladinWatcher", UIParent)
         MovablePaladinWatcher:RegisterEvent("PLAYER_ENTERING_WORLD")
         MovablePaladinWatcher:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
         MovablePaladinWatcher:SetScript("OnEvent", function(_, _, arg1)
@@ -2620,7 +2620,7 @@ function TPerl_Player_InitPriest(self, playerClass)
 
     if (IsMistsClassic or IsCataClassic) then
         if not MovableShadowOrbBar then
-            MovableShadowOrbBar = CreateFrame("Frame", "MovableShadowOrbBar", TPerl_AnchorFrame)
+            MovableShadowOrbBar = CreateFrame("Frame", "MovableShadowOrbBar", UIParent)
 												MovableShadowOrbBar.unit = "player"
             MovableShadowOrbBar:SetSize(160, 40)
             TPerl_BuildPriestShadowOrbBar_Mists(MovableShadowOrbBar)
@@ -2674,7 +2674,7 @@ function TPerl_Player_InitMonk(self, playerClass)
             -- Harmony (Chi) → Windwalker only
             if spec == 269 then
                 if not MovableHarmonyBar or not MovableHarmonyBar.Created then
-                    MovableHarmonyBar = CreateFrame("Frame", "MovableHarmonyBar", TPerl_AnchorFrame)
+                    MovableHarmonyBar = CreateFrame("Frame", "MovableHarmonyBar", UIParent)
 																				MovableHarmonyBar.unit = "player"
                     TPerl_BuildMonkHarmonyBar(MovableHarmonyBar)
                     MovableHarmonyBar.Created = true
@@ -2690,7 +2690,7 @@ function TPerl_Player_InitMonk(self, playerClass)
             -- Stagger → Brewmaster only
             if spec == 268 then
                 if not MovableStaggerBar or not MovableStaggerBar.Created then
-                    MovableStaggerBar = CreateFrame("Frame", "MovableStaggerBar", TPerl_AnchorFrame)
+                    MovableStaggerBar = CreateFrame("Frame", "MovableStaggerBar", UIParent)
 																				MovableStaggerBar.unit = "player"
                     TPerl_BuildMonkStaggerBar(MovableStaggerBar)
                     MovableStaggerBar.Created = true
@@ -2706,7 +2706,7 @@ function TPerl_Player_InitMonk(self, playerClass)
         elseif IsMistsClassic then
             -- Harmony (Chi) → all specs in MoP
             if not MovableHarmonyBar or not MovableHarmonyBar.Created then
-                MovableHarmonyBar = CreateFrame("Frame", "MovableHarmonyBar", TPerl_AnchorFrame)
+                MovableHarmonyBar = CreateFrame("Frame", "MovableHarmonyBar", UIParent)
 																MovableHarmonyBar.unit = "player"
                 TPerl_BuildMonkHarmonyBar_Mists(MovableHarmonyBar)
                 MovableHarmonyBar.Created = true
@@ -2715,7 +2715,7 @@ function TPerl_Player_InitMonk(self, playerClass)
             -- Stagger → Brewmaster tree only
             if spec == 1 then
                 if not MovableStaggerBar or not MovableStaggerBar.Created then
-                    MovableStaggerBar = CreateFrame("Frame", "MovableStaggerBar", TPerl_AnchorFrame)
+                    MovableStaggerBar = CreateFrame("Frame", "MovableStaggerBar", UIParent)
 																				MovableStaggerBar.unit = "player"
                     TPerl_BuildMonkStaggerBar_Mists(MovableStaggerBar)
                     MovableStaggerBar.Created = true
@@ -2734,7 +2734,7 @@ function TPerl_Player_InitMonk(self, playerClass)
     -- Watcher: Spec changes / reloads
     ---------------------------------------------------
     if not MovableMonkWatcher then
-        MovableMonkWatcher = CreateFrame("Frame", "MovableMonkWatcher", TPerl_AnchorFrame)
+        MovableMonkWatcher = CreateFrame("Frame", "MovableMonkWatcher", UIParent)
         MovableMonkWatcher:RegisterEvent("PLAYER_ENTERING_WORLD")
         MovableMonkWatcher:RegisterEvent("PLAYER_SPECIALIZATION_CHANGED")
         MovableMonkWatcher:SetScript("OnEvent", function(_, _, arg1)
@@ -2760,7 +2760,7 @@ function TPerl_Player_InitMage(self, playerClass)
     ---------------------------------------------------
     local function EnsureArcaneBar()
         if not MovableArcaneChargesBar then
-            MovableArcaneChargesBar = CreateFrame("Frame", "MovableArcaneChargesBar", TPerl_AnchorFrame)
+            MovableArcaneChargesBar = CreateFrame("Frame", "MovableArcaneChargesBar", UIParent)
             MovableArcaneChargesBar.unit = "player"
         end
 
@@ -2818,7 +2818,7 @@ function TPerl_Player_InitDK(self, playerClass)
 	end
 
 	if not MovableRuneFrame then
-    MovableRuneFrame = CreateFrame("Frame", "MovableRuneFrame", TPerl_AnchorFrame)
+    MovableRuneFrame = CreateFrame("Frame", "MovableRuneFrame", UIParent)
 				MovableRuneFrame.unit = "player"
     if IsRetail then
         TPerl_BuildDKRuneFrame(MovableRuneFrame)
@@ -2838,7 +2838,7 @@ function TPerl_Player_InitEvoker(self, playerClass)
     end
 
     if not MovableEssenceBar then
-        MovableEssenceBar = CreateFrame("Frame", "MovableEssenceBar", TPerl_AnchorFrame)
+        MovableEssenceBar = CreateFrame("Frame", "MovableEssenceBar", UIParent)
 								MovableEssenceBar.unit = "player"
         MovableEssenceBar:SetMovable(true)
         MovableEssenceBar:SetClampedToScreen(true)
@@ -2922,14 +2922,14 @@ function TPerl_BuildMonkStaggerBar(frame)
 				elseif MovableStaggerBarPos and MovableStaggerBarPos.point then
 								frame:SetPoint(
 												MovableStaggerBarPos.point,
-												TPerl_AnchorFrame,
+												UIParent,
 												MovableStaggerBarPos.relativePoint,
 												MovableStaggerBarPos.x,
 												MovableStaggerBarPos.y
 								)
 								frame:EnableMouse(true)
 				else
-								frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -150)
+								frame:SetPoint("CENTER", UIParent, "CENTER", 0, -150)
 								MovableStaggerBarPos = {
 												point = "CENTER", relativePoint = "CENTER", x = 0, y = -150,
 								}
@@ -3047,14 +3047,14 @@ function TPerl_BuildMonkStaggerBar_Mists(frame)
     elseif MovableStaggerBarPos and MovableStaggerBarPos.point then
         frame:SetPoint(
             MovableStaggerBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableStaggerBarPos.relativePoint,
             MovableStaggerBarPos.x,
             MovableStaggerBarPos.y
         )
         frame:EnableMouse(true)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -150)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -150)
         MovableStaggerBarPos = {
             point = "CENTER", relativePoint = "CENTER", x = 0, y = -150,
         }
@@ -3197,13 +3197,13 @@ function TPerl_BuildMonkHarmonyBar(frame)
     elseif MovableHarmonyBarPos and MovableHarmonyBarPos.point then
         frame:SetPoint(
             MovableHarmonyBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableHarmonyBarPos.relativePoint,
             MovableHarmonyBarPos.x,
             MovableHarmonyBarPos.y
         )
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableHarmonyBarPos = {
             point = "CENTER", relativePoint = "CENTER", x = 0, y = -100,
         }
@@ -3351,14 +3351,14 @@ function TPerl_BuildMonkHarmonyBar_Mists(frame)
     elseif MovableHarmonyBarPos and MovableHarmonyBarPos.point then
         frame:SetPoint(
             MovableHarmonyBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableHarmonyBarPos.relativePoint,
             MovableHarmonyBarPos.x,
             MovableHarmonyBarPos.y
         )
         frame:EnableMouse(true)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableHarmonyBarPos = {
             point = "CENTER", relativePoint = "CENTER", x = 0, y = -100,
         }
@@ -3550,14 +3550,14 @@ function TPerl_BuildPaladinHolyPowerBar_Retail(frame)
     elseif MovableHolyPowerBarPos and MovableHolyPowerBarPos.point then
         frame:SetPoint(
             MovableHolyPowerBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableHolyPowerBarPos.relativePoint,
             MovableHolyPowerBarPos.x,
             MovableHolyPowerBarPos.y
         )
         frame:EnableMouse(not (pconf and pconf.lockRunes))
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -120)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -120)
         MovableHolyPowerBarPos = {
             point = "CENTER", relativePoint = "CENTER", x = 0, y = -120,
         }
@@ -3715,14 +3715,14 @@ function TPerl_BuildPaladinHolyPowerBar_Mists(frame)
     elseif MovableHolyPowerBarPos and MovableHolyPowerBarPos.point then
         frame:SetPoint(
             MovableHolyPowerBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableHolyPowerBarPos.relativePoint,
             MovableHolyPowerBarPos.x,
             MovableHolyPowerBarPos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -120)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -120)
         MovableHolyPowerBarPos = {
             point = "CENTER", relativePoint = "CENTER", x = 0, y = -120,
         }
@@ -3790,14 +3790,14 @@ function TPerl_BuildDKRuneFrame(frame)
     elseif MovableRuneFramePos and MovableRuneFramePos.point then
         frame:SetPoint(
             MovableRuneFramePos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableRuneFramePos.relativePoint,
             MovableRuneFramePos.x,
             MovableRuneFramePos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableRuneFramePos = {
             point = "CENTER", relativePoint = "CENTER", x = 0, y = -100,
         }
@@ -3873,14 +3873,14 @@ function TPerl_BuildDKRuneFrame_Mists(frame)
     elseif MovableRuneFramePos and MovableRuneFramePos.point then
         frame:SetPoint(
             MovableRuneFramePos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableRuneFramePos.relativePoint,
             MovableRuneFramePos.x,
             MovableRuneFramePos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableRuneFramePos = {
             point = "CENTER", relativePoint = "CENTER", x = 0, y = -100,
         }
@@ -4033,14 +4033,14 @@ function TPerl_BuildWarlockSoulShardBar_Mists(frame)
     elseif MovableSoulShardBarPos and MovableSoulShardBarPos.point then
         frame:SetPoint(
             MovableSoulShardBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableSoulShardBarPos.relativePoint,
             MovableSoulShardBarPos.x,
             MovableSoulShardBarPos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableSoulShardBarPos = { point = "CENTER", relativePoint = "CENTER", x = 0, y = -100 }
         frame:EnableMouse(not pconf.lockRunes)
     end
@@ -4115,14 +4115,14 @@ function TPerl_BuildWarlockDemonicFuryBar_Mists(frame)
     elseif MovableSoulShardBarPos and MovableSoulShardBarPos.point then
         frame:SetPoint(
             MovableSoulShardBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableSoulShardBarPos.relativePoint,
             MovableSoulShardBarPos.x,
             MovableSoulShardBarPos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -120)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -120)
         MovableSoulShardBarPos = {
             point = "CENTER",
             relativePoint = "CENTER",
@@ -4225,14 +4225,14 @@ function TPerl_BuildWarlockBurningEmbersBar_Mists(frame)
     elseif MovableSoulShardBarPos and MovableSoulShardBarPos.point then
         frame:SetPoint(
             MovableSoulShardBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableSoulShardBarPos.relativePoint,
             MovableSoulShardBarPos.x,
             MovableSoulShardBarPos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableSoulShardBarPos = { point = "CENTER", relativePoint = "CENTER", x = 0, y = -100 }
         frame:EnableMouse(not pconf.lockRunes)
     end
@@ -4311,14 +4311,14 @@ function TPerl_BuildWarlockSoulShardBar_Retail(frame)
     elseif MovableSoulShardBarPos and MovableSoulShardBarPos.point then
         frame:SetPoint(
             MovableSoulShardBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableSoulShardBarPos.relativePoint,
             MovableSoulShardBarPos.x,
             MovableSoulShardBarPos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableSoulShardBarPos = { point = "CENTER", relativePoint = "CENTER", x = 0, y = -100 }
         frame:EnableMouse(not pconf.lockRunes)
     end
@@ -4442,7 +4442,7 @@ function TPerl_BuildMageArcaneChargesBar_Retail(frame)
         -- Restore from saved pos
         frame:SetPoint(
             MovableArcaneChargesBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableArcaneChargesBarPos.relativePoint,
             MovableArcaneChargesBarPos.x,
             MovableArcaneChargesBarPos.y
@@ -4451,7 +4451,7 @@ function TPerl_BuildMageArcaneChargesBar_Retail(frame)
 
     else
         -- First-time default: visible under player
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableArcaneChargesBarPos = {
             point = "CENTER",
             relativePoint = "CENTER",
@@ -4541,14 +4541,14 @@ function TPerl_BuildMageArcaneChargesBar_Mists(frame)
     elseif MovableArcaneChargesBarPos and MovableArcaneChargesBarPos.point then
         frame:SetPoint(
             MovableArcaneChargesBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableArcaneChargesBarPos.relativePoint,
             MovableArcaneChargesBarPos.x,
             MovableArcaneChargesBarPos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableArcaneChargesBarPos = {
             point = "CENTER", relativePoint = "CENTER", x = 0, y = -100,
         }
@@ -4732,14 +4732,14 @@ function TPerl_BuildEvokerEssenceBar_Retail(frame)
     elseif MovableEssenceBarPos and MovableEssenceBarPos.point then
         frame:SetPoint(
             MovableEssenceBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableEssenceBarPos.relativePoint,
             MovableEssenceBarPos.x,
             MovableEssenceBarPos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableEssenceBarPos = { point = "CENTER", relativePoint = "CENTER", x = 0, y = -100 }
         frame:EnableMouse(not pconf.lockRunes)
     end
@@ -4864,14 +4864,14 @@ function TPerl_BuildPriestShadowOrbBar_Mists(frame)
     elseif MovableShadowOrbsBarPos and MovableShadowOrbsBarPos.point then
         frame:SetPoint(
             MovableShadowOrbsBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableShadowOrbsBarPos.relativePoint,
             MovableShadowOrbsBarPos.x,
             MovableShadowOrbsBarPos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -100)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -100)
         MovableShadowOrbsBarPos = {
             point = "CENTER", relativePoint = "CENTER", x = 0, y = -100,
         }
@@ -4988,14 +4988,14 @@ function TPerl_BuildBalanceBar_Mists(frame)
     elseif MovableBalanceBarPos and MovableBalanceBarPos.point then
         frame:SetPoint(
             MovableBalanceBarPos.point,
-            TPerl_AnchorFrame,
+            UIParent,
             MovableBalanceBarPos.relativePoint,
             MovableBalanceBarPos.x,
             MovableBalanceBarPos.y
         )
         frame:EnableMouse(not pconf.lockRunes)
     else
-        frame:SetPoint("CENTER", TPerl_AnchorFrame, "CENTER", 0, -150)
+        frame:SetPoint("CENTER", UIParent, "CENTER", 0, -150)
         MovableBalanceBarPos = {
             point = "CENTER", relativePoint = "CENTER", x = 0, y = -150,
         }
