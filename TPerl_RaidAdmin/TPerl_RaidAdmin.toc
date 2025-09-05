@@ -1,0 +1,19 @@
+## Interface: 11507, 110200 , 50500
+## Author: TULOA
+## Title: TPerl |cffeda55fRaid Admin|r
+## Title-itIT: TPerl |cffeda55fAmministrazione Incursione|r
+## Title-ruRU: TPerl |cffeda55fРейд админ|r
+## Title-deDE: TPerl |cffeda55fSchlachtzugsadmin|r
+## Title-zhCN: TPerl |cffeda55f团队管理|r
+## Title-zhTW: TPerl |cffeda55f團隊管理|r
+## Notes: Provides useful raid admin tools for todays raid leader.
+## Notes-itIT: Fornisce degli strumenti utili agli ufficiali delle incursioni.
+## Notes-ruRU: Обеспечивает рейд лидера полезными инструментами рейд админа.
+## Notes-deDE: Bietet Schlachtzugsleitern nützliche Einstellungsmöglichkeiten.
+## Notes-zhTW: 提供團隊管理工具給予領隊以方便地整合人員
+## SavedVariablesPerCharacter: TPerl_Admin, TPerl_CheckItems
+## RequiredDeps: TPerl
+
+TPerl_RaidAdmin.xml
+TPerl_Check.xml
+TPerl_RosterText.xml

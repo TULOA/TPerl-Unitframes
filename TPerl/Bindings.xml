@@ -1,0 +1,53 @@
+<Bindings>
+	<Binding name="TPERL_TOGGLERAID" header="TPERL" category="ADDONS">
+		if (not TPerl_Options or not TPerl_Options:IsShown()) then
+			if (not InCombatLockdown()) then
+				if (TPerlDB.raid.enable) then
+					TPerlDB.raid.enable = nil
+				else
+					TPerlDB.raid.enable = 1
+				end
+				if (TPerl_Raid_HideShowRaid) then
+					TPerl_Raid_HideShowRaid()
+					TPerl_RaidTitles()
+				end
+			end
+		end
+	</Binding>
+	<Binding name="TPERL_TOGGLERAIDPETS" category="ADDONS">
+		if (not TPerl_Options or not TPerl_Options:IsShown()) then
+			if (not InCombatLockdown()) then
+				if (TPerlDB.raidpet.enable) then
+					TPerlDB.raidpet.enable = nil
+				else
+					TPerlDB.raidpet.enable = 1
+				end
+				if (TPerl_RaidPets_OptionActions) then
+					TPerl_RaidPets_OptionActions()
+				end
+			end
+		end
+	</Binding>
+	<Binding name="TPERL_TOGGLERANGEFINDER" category="ADDONS">
+		if (not TPerl_Options or not TPerl_Options:IsShown()) then
+			if (TPerlDB.rangeFinder.enabled) then
+				TPerlDB.rangeFinder.enabled = nil
+			else
+				TPerlDB.rangeFinder.enabled = 1
+			end
+		end
+	</Binding>
+	<Binding name="TPERL_TOGGLEOPTIONS" category="ADDONS">
+		TPerl_Toggle()
+	</Binding>
+	<Binding name="TPERL_TOGGLEBUFFTYPE" category="ADDONS">
+		if (TPerl_ToggleRaidBuffs) then
+			TPerl_ToggleRaidBuffs()
+		end
+	</Binding>
+	<Binding name="TPERL_TOGGLEBUFFCASTABLE" category="ADDONS">
+		if (TPerl_ToggleRaidBuffs) then
+			TPerl_ToggleRaidBuffs(1)
+		end
+	</Binding>
+</Bindings>

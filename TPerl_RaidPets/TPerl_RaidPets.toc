@@ -1,0 +1,16 @@
+## Interface: 11507, 110200 , 50500
+## Author: TULOA
+## Title: TPerl |cffeda55fRaid Pets|r
+## Title-itIT: TPerl |cffeda55fFamigli Incursione|r
+## Title-ruRU: TPerl |cffeda55fПитомцы рейда|r
+## Title-deDE: TPerl |cffeda55fSchlachtzugsbegleiter|r
+## Title-zhCN: TPerl |cffeda55f团队宠物窗|r
+## Title-zhTW: TPerl |cffeda55f團隊寵物框架|r
+## Notes: TPerl Raid pets
+## Notes-itIT: Famigli dell'incursione di TPerl
+## Notes-ruRU: Фреймы питомцев рейда.
+## Notes-deDE: TPerl Schlachtzugsbegleiter
+## Notes-zhTW: TPerl 團隊寵物框架
+## Dependencies: TPerl, TPerl_RaidFrames
+
+TPerl_RaidPets.xml

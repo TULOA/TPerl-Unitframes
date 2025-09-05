@@ -1,0 +1,17 @@
+## Interface: 11507, 110200 , 50500
+## Author: TULOA
+## Title: TPerl |cffeda55fPlayer|r
+## Title-itIT: TPerl |cffeda55fGiocatore|r
+## Title-ruRU: TPerl |cffeda55fИгрок|r
+## Title-deDE: TPerl |cffeda55fSpieler|r
+## Title-zhCN: TPerl |cffeda55f玩家窗|r
+## Title-zhTW: TPerl |cffeda55f玩家單位框架|r
+## Notes: Replaces the default player frame.
+## Notes-itIT: Rimpiazza la finestra del giocatore.
+## Notes-ruRU: Заменяет стандартный фрейм игрока.
+## Notes-deDE: Ersetzt das Spielerfenster.
+## Notes-zhTW: 替換並增強的玩家單位頭像框架
+## RequiredDeps: TPerl
+## OptionalDeps: TPerl_ArcaneBar
+
+TPerl_Player.xml

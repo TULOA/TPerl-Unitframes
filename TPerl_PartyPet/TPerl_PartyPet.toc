@@ -1,0 +1,17 @@
+## Interface: 11507, 110200 , 50500
+## Author: TULOA
+## Title: TPerl |cffeda55fParty Pet|r
+## Title-itIT: TPerl |cffeda55fFamigli Gruppo|r
+## Title-ruRU: TPerl |cffeda55fПитомцы группы|r
+## Title-deDE: TPerl |cffeda55fGruppenbegleiter|r
+## Title-zhCN: TPerl |cffeda55f队友宠物窗|r
+## Title-zhTW: TPerl |cffeda55f隊友寵物|r
+## Notes: Replaces the default party's pet frames.
+## Notes-itIT: Rimpiazza le finestre dei famigli del gruppo.
+## Notes-ruRU: Заменяет стандартные фреймы питомцев группы.
+## Notes-deDE: Ersetzt die Begleiterfenster der Gruppe.
+## Notes-zhTW: 提供增強的隊員寵物框架
+## RequiredDeps: TPerl, TPerl_Party
+## OptionalDeps: TPerl_ArcaneBar
+
+TPerl_PartyPet.xml

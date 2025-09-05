@@ -1,0 +1,17 @@
+## Interface: 11507, 110200 , 50500
+## Author: TULOA
+## Title: TPerl |cffeda55fRaid Frames|r
+## Title-itIT: TPerl |cffeda55fIncursione|r
+## Title-ruRU: TPerl |cffeda55fРейд|r
+## Title-deDE: TPerl |cffeda55fSchlachtzugsfenster|r
+## Title-zhCN: TPerl |cffeda55f团队窗|r
+## Title-zhTW: TPerl |cffeda55f團隊框架|r
+## Notes: TPerl Raid frames
+## Notes-itIT: Finestre incursione di TPerl
+## Notes-ruRU: Фреймы рейда.
+## Notes-deDE: TPerl |cffeda55fSchlachtzugfenster|r
+## Notes-zhTW: TPerl 團隊框架
+## Dependencies: TPerl
+## SavedVariablesPerCharacter: TPerl_Roster
+
+TPerl_Raid.xml

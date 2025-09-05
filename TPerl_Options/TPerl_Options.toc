@@ -1,0 +1,16 @@
+## Interface: 11507, 110200 , 50500
+## Author: TULOA
+## Title: TPerl |cffeda55fOptions|r |cFF40FF40(LoadOnDemand)|r
+## Title-itIT: TPerl |cffeda55fOpzioni|r |cFF40FF40(Caricabile su richiesta)|r
+## Title-ruRU: TPerl |cffeda55fНастройки|r |cFF40FF40(LoadOnDemand)|r
+## Title-zhCN: TPerl |cffeda55f选项|r |cFF40FF40(LoadOnDemand)|r
+## Title-zhTW: TPerl |cffeda55f功能設定|r |cFF40FF40(隨機載入)|r
+## Notes: TPerl Options GUI
+## Notes-itIT: Finestra opzioni di TPerl
+## Notes-ruRU: Интерфейс настроек TPerl'а
+## Notes-deDE: TPerl UnitFrames Optionen GUI
+## Notes-zhTW: TPerl 單位框架功能設定 GUI
+## RequiredDeps: TPerl
+## LoadOnDemand: 1
+
+TPerl_FrameOptions.xml

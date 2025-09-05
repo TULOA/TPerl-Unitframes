@@ -1,0 +1,27 @@
+-- X-Perl UnitFrames
+-- Author: Resike
+-- License: GNU GPL v3, 29 June 2007 (see LICENSE.txt)
+
+TPERL_RAID_GROUP		= "Group %d"
+TPERL_RAID_TOOLTIP_OFFLINE	= "Offline for %s"
+TPERL_RAID_TOOLTIP_AFK		= "AFK for %s"
+TPERL_RAID_TOOLTIP_DND		= "DND for %s"
+TPERL_RAID_TOOLTIP_DYING	= "Dying in %s"
+TPERL_RAID_TOOLTIP_REBIRTH	= "Rebirth up in: %s"
+TPERL_RAID_TOOLTIP_ANKH		= "Ankh up in: %s"
+TPERL_RAID_TOOLTIP_SOULSTONE	= "Soulstone up in: %s"
+
+TPERL_RAID_TOOLTIP_REMAINING	= " remaining"
+
+TPERL_RAID_DROPDOWN_SHOWPET	= "Show Pets"
+TPERL_RAID_DROPDOWN_SHOWOWNER	= "Show Owners"
+
+TPERL_RAID_DROPDOWN_MAINTANKS	= "Main Tanks"
+TPERL_RAID_DROPDOWN_SETMT	= "Set MT #%d"
+TPERL_RAID_DROPDOWN_REMOVEMT	= "Remove MT #%d"
+
+TPERL_RAID_RESSING		= " ressing"
+TPERL_RAID_AFK			= "AFK"
+TPERL_RAID_DND			= "DND"
+TPERL_RAID_AUTOPROMOTE		= "Auto-Promote"
+TPERL_RAID_RESSER_AVAIL		= "Rezzers Available: "

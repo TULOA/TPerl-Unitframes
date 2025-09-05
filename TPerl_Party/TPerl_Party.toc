@@ -1,0 +1,17 @@
+## Interface: 11507, 110200 , 50500
+## Author: TULOA
+## Title: TPerl |cffeda55fParty|r
+## Title-itIT: TPerl |cffeda55fGruppo|r
+## Title-ruRU: TPerl |cffeda55fГруппа|r
+## Title-deDE: TPerl |cffeda55fGruppe|r
+## Title-zhCN: TPerl |cffeda55f小队窗|r
+## Title-zhTW: TPerl |cffeda55f隊伍框架|r
+## Notes: Replaces the default party frames.
+## Notes-itIT: Rimpiazza la finestra del gruppo.
+## Notes-ruRU: Заменяет стандартные фреймы группы.
+## Notes-deDE: Ersetzt die Gruppenfenster.
+## Notes-zhTW: TPerl 隊伍框架 替換內建的隊伍框架
+## RequiredDeps: TPerl
+## OptionalDeps: TPerl_ArcaneBar
+
+TPerl_Party.xml

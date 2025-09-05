@@ -1,0 +1,16 @@
+## Interface: 11507, 110200 , 50500
+## Author: TULOA
+## Title: TPerl |cffeda55fPlayer Pet|r
+## Title-itIT: TPerl |cffeda55fFamiglio Giocatore|r
+## Title-ruRU: TPerl |cffeda55fПитомец игрока|r
+## Title-deDE: TPerl |cffeda55fSpielerbegleiter|r
+## Title-zhCN: TPerl |cffeda55f玩家宠物|r
+## Title-zhTW: TPerl |cffeda55f玩家寵物|r
+## Notes: Replaces the default player's pet frame.
+## Notes-itIT: Rimpiazza la finestra del famiglio del giocatore.
+## Notes-ruRU: Заменяет стандартный фрейм питомца игрока.
+## Notes-deDE: Ersetzt das Begleiterfenster des Spielers.
+## Notes-zhTW: 顯示玩家單位的寵物框架
+## RequiredDeps: TPerl, TPerl_Player
+
+TPerl_PlayerPet.xml

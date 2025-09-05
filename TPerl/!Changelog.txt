@@ -1,0 +1,4 @@
+Version 1.0:
+
+>Includes all updates up to 1.2.6 of my Fan Update.
+>Renamed any reference of XPerl and ZPerl to TPerl. No more antique references.

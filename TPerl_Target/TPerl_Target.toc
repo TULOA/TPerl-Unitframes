@@ -1,0 +1,17 @@
+## Interface: 11507, 110200 , 50500
+## Author: TULOA
+## Title: TPerl |cffeda55fTarget|r
+## Title-itIT: TPerl |cffeda55fBersaglio|r
+## Title-ruRU: TPerl |cffeda55fЦель|r
+## Title-deDE: TPerl |cffeda55fZiel|r
+## Title-zhCN: TPerl |cffeda55f目标窗|r
+## Title-zhTW: TPerl |cffeda55f目標框架|r
+## Notes: Replaces the default target frame.
+## Notes-itIT: Rimpiazza la finestra del bersaglio.
+## Notes-ruRU: Заменяет стандартный фрейм цели.
+## Notes-deDE: Ersetzt das Zielfenster.
+## Notes-zhTW: 提供顯示目標框架.
+## RequiredDeps: TPerl
+## OptionalDeps: TPerl_ArcaneBar
+
+TPerl_Target.xml
